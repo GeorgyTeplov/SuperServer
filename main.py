@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 
 app = Flask(__name__)
@@ -5,9 +7,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Привет от гоши теплова"
+    return "Привет от приложения Flask"
 
 
 if __name__ == '__main__':
-    port = 5000
+    port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
